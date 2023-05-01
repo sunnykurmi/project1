@@ -1,0 +1,755 @@
+*{
+margin:0;
+padding: 0;
+box-sizing: border-box;
+}
+html,body{
+font-family: gilroy;
+width: 100%;
+}
+#main{
+    position: relative;
+    width: 100%;
+}
+/* #circle{
+    position: fixed;
+    z-index: 100000;
+    top: 0;
+    left: 0;
+    height: .5vw;
+    width: .5vw;
+    transition: cubic-bezier(0.19, 1, 0.22, 1)1s;
+    background-color: orange;
+    border-radius: 50%;
+} */
+#loader{
+    position: absolute;
+    z-index: 99999999;
+    height: 100vh;
+    color: #342221;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(255, 255, 255);
+}
+#loadbox{
+    height: 20vh;
+    width: 25%;
+    display: flex;
+    overflow: hidden;
+}
+#b1,#b2,#b3,#b4{
+    height: 100%;
+    width: 25%;
+
+}   
+
+#loadbox span{
+    width: 100%;
+    height: 100%;
+    display: block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 8vw;
+}
+#loadbar{
+    height: 1%;
+    background-color: black;
+    border-radius: 100px;
+    position: absolute;
+    bottom: 0%;
+    left: 0;
+    width: 3%;
+}
+#loadertxt{
+    position: absolute;
+    bottom: 5%;
+    width: 17%;
+    justify-content: space-between;
+    text-transform: uppercase;
+    display: flex;
+
+}
+#loadertxt h6{
+    font-weight: 400;
+    font-size: 1.3vw;
+
+}
+#loadertxt span{
+    display: block;
+    overflow: hidden;
+
+}
+#nav{
+    color: #342221;
+    background-color: #fff;
+    z-index: 999;
+    position: fixed;
+    height: 8vh;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+#n1,#n3{
+    display: flex;
+    height: 100%;
+    width: 20%;
+}
+#n1{
+    padding: 1vw 1vw;
+    font-size: 1.5vw;
+}
+#n2{
+    width: 55%;
+    align-items: center;
+    display: flex;
+    justify-content: space-evenly;
+    height: 100%;
+}
+#n3{
+    padding-right: 2%;
+    align-items: center;
+    justify-content: end;
+
+}
+#n3 a{
+    /* padding-left: 8%; */
+    margin-left: 8%;
+}
+#n2 a,#n3 a{
+    overflow: hidden;
+    position: relative;
+    color: #342221;
+    text-decoration: none;
+    
+}
+#n2 a::after{
+    content: "";
+    transition: cubic-bezier(0.19, 1, 0.22, 1)1s;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 0%;
+    height: 1.5px;
+    background-color: black;
+}
+#n2 a:hover::after{
+    width: 100%;
+}
+#n3 a::after{
+    content: "";
+    transition: cubic-bezier(0.19, 1, 0.22, 1)1s;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 0%;
+    height: 1.5px;
+    background-color: black;
+}
+#n3 a:hover::after{
+    width: 100%;
+}
+#n1 svg{
+    height: 100%;
+    width: 100%;
+}
+#page1{
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    background-color: #fff;
+
+}
+#vid{
+    /* background-color: black; */
+    width: 100%;
+    height: 10%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+#vid video{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+#page1txtbox{
+    width: 80%;
+    color: #ffffff;
+    mix-blend-mode: difference;
+    height: 70%;
+    /* position: absolute; */
+    /* top: 50%;
+    left: 50%; */
+    text-align: center;
+    transform: translate(15%, 20%);
+}
+#page1txt h1{
+    line-height: 9vw;
+    font-size: 11vw;
+    font-weight: 350;
+}
+
+#page1txt:nth-child(1){
+    position: relative;
+}
+#page1txt:nth-child(2){
+    position: relative;
+}
+#page1txt:nth-child(3){
+    position: relative;
+}
+#page1txt:nth-child(4){
+    margin-top: -4%;
+    position: relative;
+}
+#rr{
+    width: 7vh;
+    height: 7vh;
+    position: absolute;
+    right: 16%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size:3.5vw;
+    text-align: center;
+    top: 20%;
+    /* border-radius: 2px solid black; */
+    border-radius: 50%;
+    border: 4px solid #fff;
+}
+
+#page2{
+    position: relative;
+    min-height: 100vh;
+    width: 100%;
+}
+#page2drag{
+    position: relative;
+    cursor: default;
+    top: 0;
+    overflow: scroll;
+    text-transform: uppercase;
+    display: flex;
+    width: 100%;
+    height: 15vh;}
+#page2drag::-webkit-scrollbar{
+    display: none;
+}
+
+#drag1{
+    flex-shrink: 0;
+    margin-right: 1%;
+    margin-left: 1%;
+    display: flex;
+    height: 100%;
+    align-items: center;
+    gap: 1vw;
+}
+#drag1 h1{
+    font-size: 5vw;
+    font-weight: 300;
+}
+#drag1line {
+    width: 2vw;
+    height: .1vw;
+    background-color: black;
+}
+#drag1 sup{
+    font-size: 3vw;
+    margin-left: -15%;
+}
+#drag2child{
+    margin-left: -7%;
+}
+#slidingtxt{
+    display: flex;
+    height: 25vh;
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+#slide,#slide1{
+    margin-right: 8%;
+    flex-shrink: 0;
+    color: #342221;
+    text-transform: uppercase;
+    height: 100%;
+
+}
+#slide{
+    animation-name: slide;
+    animation-timing-function: linear;
+    animation-duration: 10s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: infinite;
+
+}
+#slide1{
+    animation-name: slide1;
+    animation-timing-function: linear;
+    animation-duration: 20s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: infinite;
+
+}
+#slide h1,#slide1 h1{
+    position: relative;
+    font-weight: 350;
+    white-space: nowrap;
+    font-size: 10vw;
+}
+#slide h1 sup{
+    font-size: 1.5vw;
+    top: 10%;;
+    position: absolute;
+}
+@keyframes slide {
+    0%{
+        transform: translateX(0%);
+    }
+    100%{
+        transform: translateX(-100%);
+    }
+    
+}
+@keyframes slide1 {
+    0%{
+        transform: translateX(-100%);
+    }
+    100%{
+        transform: translateX(0%);
+    }
+    
+}
+#slidingpic{
+    /* overflow: scroll; */
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    left:100%;
+    gap: 8%;
+    width: 100%;
+    height: 38vw;
+    display: flex;
+    align-items: center;
+}
+#pic{
+    flex-shrink: 0;
+    z-index: 999;
+    text-transform:uppercase;
+    display: flex;
+    flex-direction: column;
+    background-image: url(https://kafeaterra.gr/wp-content/uploads/Home_illy-Brand-Banner_Portrait-5x6.jpg);
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    background-size: cover;
+    background-position: center;
+    height: 38vw;
+    width: 30vw;
+    color: white;
+}
+#pic:nth-child(2){
+    background-image: url(https://kafeaterra.gr/wp-content/uploads/Home_Dimello-Brand-Banner_Portrait-5x6.jpg);
+}
+#pic:nth-child(3){
+    background-image: url(https://kafeaterra.gr/wp-content/uploads/Home_Area-51-Brand-Banner_Portrait-5x6.jpg);
+}
+#pic:nth-child(4){
+    background-image: url(https://kafeaterra.gr/wp-content/uploads/Home_Distillo-Brand-Banner_Portrait-5x6.jpg);
+}
+#pic:nth-child(5){
+    background-image: url(https://kafeaterra.gr/wp-content/uploads/Home_Other-Brands-Banner_Portrait-5x6.jpg);
+}
+
+#pic h1{
+    font-size: 3vw;
+    font-weight: 300;
+    margin-top: 5%;
+}
+#pic h3{
+    /* font-size: 1vw; */
+    font-weight: 400;
+    margin-bottom: 5%;
+}
+#page3{
+    text-align: center;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: #342221;
+    width: 100%;
+}
+#page3 h3{
+    overflow: hidden;
+    font-weight: 400;
+    margin-bottom: 1%;
+}
+#page3 span{
+    display: block;
+    overflow: hidden;
+}
+#page3 h1{
+    font-size: 11vw;
+    line-height: 10vw;
+    font-weight: 300;
+}
+#page4{
+    min-height: 100vh;
+    width: 100%;
+    position: relative;
+}
+#page4 img:nth-child(1){
+    position: absolute;
+    top: -10%;
+    width: 40%;
+    margin-left: 1%;
+
+}
+#page4 img:nth-child(3){
+    width: 15%;
+    position: absolute;
+    bottom: 10%;
+    right: 2%;
+}
+#page4txt{
+    position: absolute;
+    top: 30%;
+    right: 5%;
+}
+#page4 h2{
+    width: 100%;
+    font-weight: 380;
+}
+#page4 h2:nth-child(1){
+    margin-left: 10%;
+}
+#page4txt a{
+    text-decoration: none;
+    position: relative;
+    overflow: hidden;
+    margin-top: 5%;
+    margin-right: 5%;
+    color: #D68240;
+}
+#page4txt a::after{
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: all linear .3s;
+    height: 1px;
+    background-color: #D68240;
+    width: 100%;
+}
+#page4txt a:hover::after{
+   width: 0;
+}
+#slideright{
+    background-color: white;
+    color: #342221;
+    position: relative;
+    text-align: center;
+    width: 100%;
+    height: 30vh;
+}
+#slideright h3{
+    font-weight: 350; 
+}
+#page5{
+    height: 100vh;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    background-image: url(https://kafeaterra.gr/wp-content/uploads/Training_Featured_Landscape-16x9.jpg);
+}
+#page6{
+    margin-top: -7%;
+    padding-top: 3%;
+    width: 100%;
+    background-color: white;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#page6 h3{
+    height: 15%;
+    font-weight: 400;
+    letter-spacing: -.1vw;
+    width: 40%;
+    font-size: 1.8vw;
+    text-align: center;
+}
+
+#page7{
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    flex-direction: column;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    text-transform: uppercase;
+}
+#page7-txt1{
+    z-index: 999;
+    cursor: default;
+    width: 100%;
+    height: 20%;
+    color: #342221;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+#page7-txt1 h1{
+    transition: cubic-bezier(0.19, 1, 0.22, 1)1s;
+    font-weight: 350;
+    font-size: 7vw;
+}
+#page7-txt1 h4{
+    font-weight: 400;
+}
+#page7>img{
+    position: absolute;
+    width: 0%;
+    height: 42%;
+    transition: cubic-bezier(0.19, 1, 0.22, 1).5s;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+}
+.s1{
+    overflow: hidden;
+    width: 30%;
+    display: block;
+}
+.s2{
+    width: 60%;
+    overflow: hidden;
+    display: block;
+}
+.s3{
+    overflow: hidden;
+    width: 15%;
+    display: block;
+}
+.s4,.s5,.s6{
+    overflow: hidden;
+    display: block;
+    width: 20%;
+}
+
+#page8{
+    text-align: center;
+    overflow: hidden;
+    position: relative;
+    min-height: 100vh;
+    width: 100%;
+    background-color: white;
+    color: #342221;
+    text-transform: uppercase;
+}
+#page8 h3{
+    font-weight: 400;
+}
+#page8 span{
+    display: block;
+    display: flex;
+    overflow: hidden;
+    justify-content: center;
+    align-items: center;
+}
+#page8 span h1{
+    margin-top: -2%;
+    font-weight: 300;
+    font-size: 10vw;
+}
+.page8span0{
+    margin-bottom: 3%;
+}
+#page8txt{
+    padding-left: 3%;
+    position: relative;
+    height: 90vh;
+    display: flex;
+    justify-content: center;
+    font-size: 1.4vw;
+    flex-direction: column;
+    width: 44%;
+}
+#page8txt h3:nth-child(1){
+   text-align: center;
+}
+#page8txt h3:nth-child(3){
+   text-align: left;
+}
+#page8txt h3:nth-child(2){
+   text-align: left;
+}
+#page8 a{
+    text-decoration: underline  1px solid #D68240;
+    color: #D68240;
+    font-size: 1vw;
+    text-align: left;
+}
+
+#page8 img{
+    height: 100vh;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    margin-right: 1%;
+}
+#page9{
+    height: 100vh;
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    /* background-color: white; */
+    /* background: linear-gradient(white,#342221); */
+}
+#page9 h1{
+    width: 100%;
+    top: 50%;
+    transform: translate(0, -50%);
+    color: white;
+    font-size: 10vw;
+    z-index: 999;
+    font-weight: 300;
+    text-transform: uppercase;
+    position: absolute;
+}
+#page9 span{
+    display: block;
+    font-size: 2.8vw;
+    overflow: hidden;
+    color: white;
+}
+#page9 span h3{
+    font-weight: 400;
+}
+#page9 h6{
+    text-transform: uppercase;
+    color: #D68240;
+    text-decoration: underline 1px solid #D68240;
+    font-size: 1.3vw;
+    font-weight: 300;
+    margin-top: 30%;
+}
+#page9 img:nth-child(1){
+    position: absolute;
+    left: 0;
+    bottom: 35%;
+    margin-left: 2%;
+    width: 15%;
+}
+#page9 img:nth-child(2){
+    position: absolute;
+    right: 0;
+    bottom: 5%;
+    margin-right: 2%;
+    width: 15%;
+}
+
+#page10{
+    margin-top: -1px;
+    text-transform: uppercase;
+    height: 100vh;
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    justify-content: center;
+align-items: center;
+    width: 100%;
+    background-color:#201616;
+}
+#page10 h3{
+    font-weight: 300;
+    font-size: 1vw;
+    margin-bottom: 1%;
+    color: #fff;
+}
+#page10 h1{
+    font-size: 6vw;
+    font-weight: 300;
+    color: rgb(185, 185, 185);
+}
+#f0{
+    position: absolute;
+    width: 100%;
+    bottom:7vh ;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 1vh;
+    align-items: center;
+    color: white;
+    text-transform: uppercase;
+    height: 5vh;
+}
+#f0 a{
+    color: white;
+    text-decoration: none;
+}
+#f0 h4{
+    font-weight: 300;
+    margin-left: 15%;
+    font-size: 1.3vw;
+}
+#ftxt{
+    display: flex;
+    gap: 1%;
+
+}
+#fp{
+    gap: 4%;
+    width: 25%;
+    display: flex;
+
+}
+#footer{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    height: 7vh;
+}
+#f1{
+    width: 30%;
+    flex-shrink: 0;
+    display: flex;
+    gap: 1%;
+    animation: footer linear infinite 10s;
+}
+#f1 h1{
+    color: rgb(215, 215, 215);
+    font-size: 2vw;
+    text-transform: uppercase ;
+}
+#f1 h1:nth-child(1){
+    color: #a0907d;
+}
+@keyframes footer {
+    0%{
+        transform: translate(0%, 0);
+    }
+    100%{
+        transform: translate(-100%, 0);
+    }
+    
+}
+
